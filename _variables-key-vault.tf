@@ -9,8 +9,7 @@ variable "resource_group_name" {
 
 variable "tenant_id" {
   type        = string
-  default     = "8c5ae8ec-a067-485b-bc71-5d47eb639670"
-  description = "The Azure Active Directory tenant identifier that should be used for authenticating requests to the key vault. Default is the Jasper tenant identifier."
+  description = "The Azure Active Directory tenant identifier that should be used for authenticating requests to the key vault."
 }
 
 variable "soft_delete_retention_days" {

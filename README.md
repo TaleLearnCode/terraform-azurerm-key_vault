@@ -64,7 +64,7 @@ For more detailed instructions on using this module: please refer to the appropr
 | srv_comp_abbr               | The abbreviation of the service or component for which the resources are being created for. | string  | NULL               | no       |
 | subscription_id             | The Azure Subscription Id to use for creating resources      | string  | N/A                | yes      |
 | tags                        | A map of tags to apply to all resources.                     | map     | N/A                | no       |
-| tenant_id                   | The Azure Active Directory tenant identifier that should be used for authenticating requests to the key vault. | string  | Jasper's Tenant Id | no       |
+| tenant_id                   | The Azure Active Directory tenant identifier that should be used for authenticating requests to the key vault. | string  | N/A | yes       |
 
 ## Outputs
 
