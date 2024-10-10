@@ -28,7 +28,7 @@ resource "azurerm_key_vault" "key_vault" {
 }
 
 resource "azurerm_role_assignment" "key_vault_administrators_all_access" {
-  for_each            = length(var.all_access_users) > 0 ? toset(var.all_access_users) : {}
+  for_each            = length(var.all_access_users) > 0 ? toset(var.all_access_users) : toset([])
   scope               = azurerm_key_vault.key_vault.id
   role_definition_name = "Key Vault Administrator"
   principal_id        = each.value
@@ -39,7 +39,7 @@ resource "azurerm_role_assignment" "key_vault_administrators_all_access" {
 }
 
 resource "azurerm_role_assignment" "key_vault_administrators" {
-  for_each            = length(var.key_vault_administrators) > 0 ? toset(var.key_vault_administrators) : {}
+  for_each            = length(var.key_vault_administrators) > 0 ? toset(var.key_vault_administrators) : toset([])
   scope               = azurerm_key_vault.key_vault.id
   role_definition_name = "Key Vault Administrator"
   principal_id        = each.value
@@ -49,9 +49,8 @@ resource "azurerm_role_assignment" "key_vault_administrators" {
   ]
 }
 
-
 resource "azurerm_role_assignment" "key_vault_secrets_offiers_all_access" {
-  for_each            = length(var.all_access_users) > 0 ? toset(var.all_access_users) : {}
+  for_each            = length(var.all_access_users) > 0 ? toset(var.all_access_users) : toset([])
   scope               = azurerm_key_vault.key_vault.id
   role_definition_name = "Key Vault Secrets Officer"
   principal_id        = each.value
@@ -62,7 +61,7 @@ resource "azurerm_role_assignment" "key_vault_secrets_offiers_all_access" {
 }
 
 resource "azurerm_role_assignment" "key_vault_secrets_offiers" {
-  for_each            = length(var.secrets_officers) > 0 ? toset(var.secrets_officers) : {}
+  for_each            = length(var.secrets_officers) > 0 ? toset(var.secrets_officers) : toset([])
   scope               = azurerm_key_vault.key_vault.id
   role_definition_name = "Key Vault Secrets Officer"
   principal_id        = each.value
