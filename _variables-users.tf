@@ -19,3 +19,9 @@ variable "secrets_officers" {
   default = []
   description = "A list of user principal IDs that will be granted access to the key vault as Key Vault Secrets Officer."
 }
+
+variable "secret_users" {
+  type    = list(string)
+  default = []
+  description = "A list of user principal IDs that will be granted access to the key vault as Key Vault Secret User."
+}

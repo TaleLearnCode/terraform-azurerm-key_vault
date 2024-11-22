@@ -70,3 +70,14 @@ resource "azurerm_role_assignment" "key_vault_secrets_offiers" {
     azurerm_key_vault.key_vault
   ]
 }
+
+resource "azurerm_role_assignment" "key_vault_secret_users" {
+  for_each             = length(var.secret_users) > 0 ? toset(var.secret_users) : toset([])
+  scope                = azurerm_key_vault.key_vault.id
+  role_definition_name = "Key Vault Secret User"
+  principal_id         = each.value
+
+  depends_on = [
+    azurerm_key_vault.key_vault
+  ]
+}
